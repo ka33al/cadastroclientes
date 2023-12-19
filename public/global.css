@@ -1,0 +1,194 @@
+body {
+  background-color: #1642128d;
+  display: flex;
+  justify-content: center;
+}
+.main-container {
+  display: flex;
+  width: 80%;
+  border:2px solid #162938;
+  max-width: 1100px;
+  justify-content: center;
+  background-color: bisque;
+  border-radius: 3px;
+  font-size: 18px;
+}
+
+.main-container .btn-swap {
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+  border: 2px solid black;
+}
+
+.is-hidden {
+  display: none;
+}
+
+#modal {
+  width: 40%;
+  height: 30%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  color: white;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  font-size: 25px;
+  transform: translate(-50%, -50%);
+  background-color: #252b30;
+  border: 2px solid #fff;
+  border-radius: 20px;
+  overflow: hidden;
+}
+#card {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  position: relative;
+}
+#card h2 {
+  color: greenyellow;
+}
+#close {
+  width: 25px;
+  position: absolute;
+  top: -50px;
+  right: 0px;
+  background-color: red;
+  color: #fff;
+  text-align: center;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+#card p {
+  margin: 20px 0;
+}
+#cancel,
+#confirm {
+  color: #fff;
+  text-decoration: none;
+}
+#cancel:hover {
+  background-color: red;
+  border-radius: 8px;
+  width: auto;
+  color: #162938;
+}
+
+#confirm:hover {
+  background-color: yellowgreen;
+  border-radius: 8px;
+  width: auto;
+  color: #162938;
+}
+#card div {
+  display: flex;
+  justify-content: space-between;
+}
+.container {
+  position: relative;
+  width: 100%;
+  height: 920px;
+  background-color: #23567dfb;
+  display: block;
+  justify-content: center;
+}
+.cadastro {
+  padding: 20px;
+  position: relative;
+  max-height: 500px;
+  width: 500px;
+  scale: 0;
+
+  transition: 1s ease;
+  background-color: #fff;
+}
+.cadastro input,
+textarea {
+border-radius: 3px;
+  display: flex;
+  font-size: 18px;
+  margin: 20px auto;
+  height: 30px;
+  width: 100%;
+}
+.cadastro input{
+  padding-left: 10px;
+  height: 100%;
+  width: 100%;
+}
+.pesquisa {
+  position: absolute;
+  width: 100%;
+  scale: 0;
+}
+.cadastro.active {
+  width: 100%;
+
+  transition: 1s ease;
+  scale: 1;
+}
+.pesquisa.active {
+  scale: 1;
+
+  transition: 1s ease;
+}
+.container-h2 {
+  display: flex;
+}
+.container-forms {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+.content-info {
+  width: 100%;
+  background-color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.content-info .info {
+  display: flex;
+  margin: 10px;
+  padding: 10px;
+  justify-content: space-between;
+  border-bottom: 2px solid #162938;
+}
+.info h2,
+p,
+pre {
+ margin: 10px 20px 10px20px;
+
+}
+#searchbox {
+  width: 40%;
+  display: flex;
+  margin: 10px auto 50px;
+  height: 30px;
+  font-size: 20px;
+  outline: none;
+}
+.cadastro label{
+ position: absolute;
+ top: 5px;
+ left: 40px;
+ transform: translateX(-37%);
+ font-size: 1em;
+ font-weight: 500;
+ pointer-events: none;
+ background-color: red;
+ 
+ transition: 1s ease;
+}
+.cadastro div{
+  position: relative;
+}
+.cadastro input:focus~label:hover,
+.cadastro input:valid~label:hover{
+  top: -10px;
+}

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/global.css " />
+  </head>
+  <body>
+    <main class="main-container">
+      <div class="container ">
+        <div class="container-h2">
+          <h2 class="btn-swap">
+            <a class="cadastrolink">Cadastro</a>
+          </h2>
+          <h2 class="btn-swap">
+            <a  class="pesquisalink">Pesquisa</a>
+          </h2>
+        </div>
+        <div class="container-forms">
+          <section class="wrapper cadastro #wrappercadastro">
+            <% if (task){%>
+            <form action="/updateOne/<%=task._id %>" method="post">
+              <div>
+                <input type="text" name="name" id="name" value="<%=task.name %>" />
+                
+              </div>
+              <div>
+                <input type="email" name="email" id="email" value="<%=task.email %>" />
+                
+              </div>
+              <div>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                  placeholder="123-45-678"
+                  value="<%=task.phone %>"
+                />
+                
+              </div>
+              <div>
+                <input type="date" name="date" id="date" value="<%=task.date %>" />
+                
+              </div>
+
+              <textarea name="content" id="content" cols="30" rows="10">
+ 
+            <%=task.content %>
+          </textarea
+              ><div><button id="addButton" type="submit">enviar</button></div>
+              
+            </form>
+            
+            <!--segunda parte-->
+            <% }else{ %>
+            <form action="/create" method="post">
+              <div >
+                <input type="text" name="name" id="name" placeholder="Name"/>
+                
+              </div>
+              <div>
+                <input type="email" name="email" id="email" placeholder="Email" />
+                
+              </div>
+              <div>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  pattern="[0-9]{3}[0-9]{3}[0-9]{4}"
+                  placeholder="123-452-6782 Telefone"
+                 
+                />
+                
+              </div>
+              <div>
+                <input type="date" name="date" id="date" placeholder="Data De Nascimento" />
+                
+              </div>
+              <div>
+                <textarea
+                  name="content"
+                  id="content"
+                  cols="30"
+                  rows="10"
+                ></textarea>
+              </div>
+              <button id="addButton" type="submit">enviar</button>
+            </form>
+            <% } %>
+          </section>
+
+          <section class="wrapper pesquisa">
+            <input
+              type="search"
+              id="searchbox"
+              placeholder="Procurar Cliente"
+            />
+            <div class="is-hidden" id="not-found">
+              Nenhuma receita foi encontrada!
+            </div>
+                
+            <div class="content-info">
+            <% taskList.forEach((task) => {%> 
+              <div class="info"> 
+                <div>
+                  <h2><%= task.name %></h2>
+                  <p><%= task.email %></p>
+                  <p><%= task.phone %></p>
+                  <p><%= task.date %></p>
+                  <pre><%= task.content %></pre>
+                </div>
+                
+                <div class="icons-container">
+                  <a href="/getById/<%= task._id %>/update"
+                    ><ion-icon class="icons"id="update"  name="create-outline"></ion-icon
+                  ></a>
+                  <a href="/getById/<%=task._id %>/delete"
+                    ><ion-icon class="icons" name="trash-outline"></ion-icon
+                  ></a>
+                </div>
+              </div>
+              <% })%> 
+            </div>
+           
+          </section>
+        </div>
+      </div>
+      <% if (taskDelete !=null) { %>
+
+      <section id="modal">
+        <div id="card">
+          <a id="close" href="/">x</a>
+          <h2>confirmacao</h2>
+          <hr />
+          <p>Deseja realmente apagar a tarefa:<%= taskDelete.task %>?</p>
+          <div>
+            <a id="cancel" href="/">Cancelar</a>
+            <a id="confirm" href="/deleteOne/<%= taskDelete._id %>"
+              >Confirmar</a
+            >
+          </div>
+        </div>
+      </section>
+      <% } %>
+    </main>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+  <script src="/script.js"></script>
+</html>

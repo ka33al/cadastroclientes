@@ -13,7 +13,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded())
 app.use(routes);
 //rota
-app.get("/", function (req, res) {
+app.get("https://ka33al.github.io/cadastroclientes/", function (req, res) {
   res.render("index");
 });
 
